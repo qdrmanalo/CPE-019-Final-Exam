@@ -30,7 +30,7 @@ def import_and_predict(image_data,model):
 if file is None:
     st.text("Please upload an image file")
 else:
-    img = Image.open(sunrise_image_path)
+    img = Image.open(file)
     img.show()
     image=load_img(file, target_size=(32,32,3))
     prediction=import_and_predict(image,model)
