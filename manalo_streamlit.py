@@ -37,6 +37,6 @@ else:
                  'Rain', 
                  'Sunrise', 
                  'Shine']
-    string="OUTPUT : "+class_names[np.argmax(prediction),prediction]
+    string="OUTPUT : "+class_names[np.argmax(prediction)],prediction
     st.success(string)
 
