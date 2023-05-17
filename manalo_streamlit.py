@@ -38,5 +38,5 @@ else:
                  'Sunrise', 
                  'Shine']
     string="OUTPUT : "+class_names[np.argmax(prediction)]
-    st.success(np.argmax(prediction),string)
+    st.success(prediction,string)
 
