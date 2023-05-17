@@ -30,8 +30,7 @@ def import_and_predict(image_data,model):
 if file is None:
     st.text("Please upload an image file")
 else:
-    img = Image.open(file)
-    img.show()
+    st.image(Image.open(file),use_column_width=True)
     image=load_img(file, target_size=(32,32,3))
     prediction=import_and_predict(image,model)
     class_names=['Cloudy', 
@@ -39,5 +38,5 @@ else:
                  'Sunrise', 
                  'Shine']
     string="OUTPUT : "+class_names[np.argmax(prediction)]
-    st.success(string)
+    st.success(np.argmax(prediction),string)
 
