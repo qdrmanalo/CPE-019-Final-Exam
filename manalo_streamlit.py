@@ -12,9 +12,8 @@ def load_model():
   model=tf.keras.models.load_model('sky_classification_model.hdf5')
   return model
 model=load_model()
-st.write("""
-# Sky Classification System"""
-)
+st.write('# Sky Classification System')
+st.write('## Predicts if the sky is Cloudy, Raining, Sunrise or Shine')
 file=st.file_uploader("Choose sky photo from computer",type=["jpg","png"])
 
 from PIL import Image,ImageOps
