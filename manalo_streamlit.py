@@ -17,15 +17,15 @@ st.write("""
 )
 file=st.file_uploader("Choose sky photo from computer",type=["jpg","png"])
 
-import cv2
 from PIL import Image,ImageOps
+from tensorflow.keras.utils import load_img, img_to_array
 import numpy as np
+import cv2
 def import_and_predict(image_data,model):
-    size=(32,32)
-    image=ImageOps.fit(image_data,size,Image.ANTIALIAS)
-    img=np.asarray(image)
-    img=cv2.resize(img,size,cv2.INTER_CUBIC)
-    prediction=model.predict(img)
+    image = load_img(image_data, target_size=(32,32,3))
+    input_arr = img_to_array(image)
+    input_arr = np.array([input_arr])  # Convert single image to a batch.
+    prediction = model.predict(input_arr)
     return prediction
  
 if file is None:
