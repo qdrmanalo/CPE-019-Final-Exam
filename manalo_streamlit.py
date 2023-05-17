@@ -13,7 +13,7 @@ def load_model():
   return model
 model=load_model()
 st.write('# Sky Classification System')
-st.write('Predicts if the sky is Cloudy, Raining, Sunrise or Shine')
+st.write('Predicts if the sky is Cloudy, Rain, Sunrise or Shine')
 file=st.file_uploader("Choose sky photo from computer",type=["jpg","png"])
 
 from PIL import Image,ImageOps
