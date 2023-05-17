@@ -22,8 +22,7 @@ from tensorflow.keras.utils import load_img, img_to_array
 import numpy as np
 import cv2
 def import_and_predict(image_data,model):
-    image = load_img(image_data, target_size=(32,32,3))
-    input_arr = img_to_array(image)
+    input_arr = img_to_array(image_data)
     input_arr = np.array([input_arr])  # Convert single image to a batch.
     prediction = model.predict(input_arr)
     return prediction
@@ -31,8 +30,7 @@ def import_and_predict(image_data,model):
 if file is None:
     st.text("Please upload an image file")
 else:
-    image=Image.open(file)
-    st.image(image,use_column_width=True)
+    image=load_img(file, target_size=(32,32,3))
     prediction=import_and_predict(image,model)
     class_names=['Cloudy', 
                  'Rain', 
